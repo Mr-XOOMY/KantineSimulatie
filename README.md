@@ -1,3 +1,8 @@
 # ITVP19DAV1A
 
-Projekt KantineSimulatie SE/NSE
+Project KantineSimulatie SE/NSE
+
+Dit is het kantine simulatie project van Dimitri Kalaïtzakis en Roland Regtop.
+Dit is het laatste project dat gemaakt moet worden voor leerjaar 1.
+
+Mocht er iemand zijn die random het project wil downloaden en bekijken, feel free to do it but remember dat wij geen enkele commit zullen doorvoeren buiten ons zelf om.
