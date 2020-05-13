@@ -5,20 +5,25 @@ import java.util.Stack;
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
 
+
     /**
      * Constructor
      */
     public Dienblad() {
-        // method body omitted
+        ArrayList<Artikel> artikelen = new ArrayList<>();
     }
 
+    public Dienblad(Persoon klant){
+        this();
+
+    }
     /**
      * Methode om artikel aan dienblad toe te voegen
      *
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        // method body omitted
+        artikelen.add(artikel);
     }
 
     /**
@@ -27,7 +32,7 @@ public class Dienblad {
      * @return Het aantal artikelen
      */
     public int getAantalArtikelen() {
-        // method body omitted
+        return artikelen.size();
     }
 
     /**
@@ -36,7 +41,10 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        // method body omitted
+        int totaal = 0;
+        for(Artikel artikel : artikelen){
+            totaal += artikel.getPrijs();
+        }
     }
 }
 
