@@ -50,9 +50,4 @@ public class Artikel {
     public void setPrijs(float prijs) {
         this.prijs = prijs;
     }
-
-    @Override
-    public String toString() {
-        return "Artikelnaam: " + getNaam() + "\nPrijs: " + getPrijs();
-    }
 }
