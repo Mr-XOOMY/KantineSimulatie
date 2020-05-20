@@ -3,6 +3,8 @@ import java.util.LinkedList;
 
 public class KassaRij {
 
+    private ArrayList<Dienblad> klanten;
+
     /**
      * Constructor
      */
@@ -16,7 +18,7 @@ public class KassaRij {
      * @param klant
      */
     public void sluitAchteraan(Dienblad klant) {
-        // method body omitted
+        klanten.add(klant);
     }
 
     /**
@@ -26,7 +28,12 @@ public class KassaRij {
      * @return Eerste klant in de rij of null
      */
     public Dienblad eerstePersoonInRij() {
-        // method body omitted
+        if(erIsEenRij()) {
+            Dienblad temp = klanten.get(0);
+            klanten.remove(0);
+            return temp;
+        }
+        return null;
     }
 
     /**
@@ -35,6 +42,6 @@ public class KassaRij {
      * @return Of er wel of geen rij bestaat
      */
     public boolean erIsEenRij() {
-        // method body omitted
+        return klanten.size() > 0;
     }
 }
