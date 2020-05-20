@@ -13,6 +13,10 @@ public class Dienblad {
         ArrayList<Artikel> artikelen = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param klant
+     */
     public Dienblad(Persoon klant){
         this();
         this.klant = klant;
@@ -34,6 +38,13 @@ public class Dienblad {
      */
     public int getAantalArtikelen() {
         return artikelen.size();
+    }
+
+    /**
+     * Verwijderd alle artikelen in de ArrayList artikelen
+     */
+    public void setAantalArtikelen() {
+        artikelen.clear();
     }
 
     /**
