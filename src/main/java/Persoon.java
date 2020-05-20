@@ -2,7 +2,7 @@ public class Persoon {
     private int bsn;
     private String voornaam;
     private String achternaam;
-    private String geboortedatum;
+    private Datum geboortedatum;
     private char geslacht;
 
     /**
@@ -13,7 +13,7 @@ public class Persoon {
      * @param geboortedatum Geboortedatum
      * @param geslacht Geslacht
      */
-    public Persoon(int bsn, String voornaam, String achternaam, String geboortedatum, String geslacht) {
+    public Persoon(int bsn, String voornaam, String achternaam, Datum geboortedatum, String geslacht) {
         this.bsn = bsn;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -61,7 +61,7 @@ public class Persoon {
      * @return Geeft geboortedatum terug
      */
     public String getGeboortedatum() {
-        return getDatumAsString();
+        return geboortedatum.getDatumAsString();
     }
 
     /**
@@ -108,7 +108,7 @@ public class Persoon {
      * Setter voor de geboortedatum
      * @param geboortedatum Geboortedatum
      */
-    public void setGeboortedatum(String geboortedatum) {
+    public void setGeboortedatum(Datum geboortedatum) {
         this.geboortedatum = geboortedatum;
     }
 

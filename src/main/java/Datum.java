@@ -122,7 +122,6 @@ public class Datum {
 	 * @return Geboortedatum
 	 */
 	public String getDatumAsString() {
-		// TODO
-		return "TODO";
+		return dag + "/" + maand + "/" + jaar;
 	}
 }
