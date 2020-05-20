@@ -20,14 +20,17 @@ public class KantineSimulatie {
     public void simuleer(int dagen) {
 
         // herhaal voor elke dag
-        for (int i = 0; ...) {
+        for (int i = 0; i < DAGEN; i++) {
 
-            // per dag nu even vast 10 + i personen naar binnen
-            // laten gaan, wordt volgende week veranderd...
+            /*
+             Per dag nu even vast 10 + i personen naar binnen laten gaan, ( in de kantine).
+             (Wordt volgende week veranderd...)
+             For-loop voor personen.
+             */
 
-            // for lus voor personen
             for (int j = 0; j < 10 + i; j++) {
                 // kantine.(...);
+                kantine.loopPakSluitAan();
             }
 
             // verwerk rij voor de kassa
