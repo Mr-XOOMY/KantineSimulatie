@@ -25,11 +25,11 @@ public class Persoon {
      * Constructor
      */
     public Persoon() {
-//        setGeslacht("Onbekend");
-//        this.bsn = 0;
-//        this.voornaam = "Onbekend";
-//        this.achternaam = "Onbekend";
-//        this.geboortedatum = "Onbekend";
+        setGeslacht("Onbekend");
+        this.bsn = 0;
+        this.voornaam = "Onbekend";
+        this.achternaam = "Onbekend";
+        this.geboortedatum = "Onbekend";
     }
 
     /**
