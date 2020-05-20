@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
-
+    private String klantVoornaam;
 
     /**
      * Constructor
@@ -15,8 +15,9 @@ public class Dienblad {
 
     public Dienblad(Persoon klant){
         this();
-
+        klantVoornaam = klant.getVoornaam();
     }
+
     /**
      * Methode om artikel aan dienblad toe te voegen
      *
@@ -45,6 +46,7 @@ public class Dienblad {
         for(Artikel artikel : artikelen){
             totaal += artikel.getPrijs();
         }
+        return totaal;
     }
 }
 
