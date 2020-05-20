@@ -24,7 +24,6 @@ public class Kassa {
         totaalPrijs = klant.getTotaalPrijs();
         System.out.println(totaalAantalArtikelen + aantalArtikelen());
         System.out.println(totaalPrijs + hoeveelheidGeldInKassa());
-        resetKassa();
     }
 
     /**
