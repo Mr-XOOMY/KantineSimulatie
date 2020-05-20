@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
-    private String klantVoornaam;
+    private Persoon klant;
 
     /**
      * Constructor
@@ -15,7 +15,7 @@ public class Dienblad {
 
     public Dienblad(Persoon klant){
         this();
-        klantVoornaam = klant.getVoornaam();
+        this.klant = klant;
     }
 
     /**
