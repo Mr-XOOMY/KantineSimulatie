@@ -20,8 +20,17 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-        totaalAantalArtikelen = klant.getAantalArtikelen();
-        totaalPrijs = klant.getTotaalPrijs();
+//        totaalAantalArtikelen = klant.getAantalArtikelen();
+//        totaalPrijs = klant.getTotaalPrijs();
+
+        Iterator<Artikel> lijst_artikelen = klant.getArtikel();
+        Artikel artikel;
+
+        while(lijst_artikelen.hasNext()) {
+            artikel = lijst_artikelen.next();
+            totaalAantalArtikelen++;
+            totaalPrijs += artikel.getPrijs();
+        }
         System.out.println(totaalAantalArtikelen + aantalArtikelen());
         System.out.println(totaalPrijs + hoeveelheidGeldInKassa());
     }
