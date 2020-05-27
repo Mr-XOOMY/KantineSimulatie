@@ -5,6 +5,7 @@ public class KantineAanbod {
     private HashMap<String, ArrayList<Artikel>> aanbod;
     private HashMap<String, Integer> startVoorraad;
     private HashMap<String, Double> prijzen;
+    private KantineAanbod kantineAanbod;
 
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen, het tweede argument is
@@ -73,5 +74,21 @@ public class KantineAanbod {
      */
     public Artikel getArtikel(String productnaam) {
         return getArtikel(getArrayList(productnaam));
+    }
+
+    /**
+     *
+     * @return
+     */
+    public KantineAanbod getKantineAanbod() {
+        return kantineAanbod;
+    }
+
+    /**
+     *
+     * @param kantineAanbod
+     */
+    public void setKantineAanbod(KantineAanbod kantineAanbod) {
+        this.kantineAanbod = kantineAanbod;
     }
 }

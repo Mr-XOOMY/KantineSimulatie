@@ -16,6 +16,7 @@ public class Kantine {
      * Artikelen aan en plaats deze op het dienblad. Tenslotte sluit de Persoon zich aan bij de rij
      * voor de kassa.
      */
+
     public void loopPakSluitAan() {
         Persoon persoon = new Persoon(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man");
         Dienblad dienblad = new Dienblad(persoon);
@@ -24,6 +25,14 @@ public class Kantine {
         dienblad.voegToe(kaas);
         dienblad.voegToe(kalasjnikov);
         kassarij.sluitAchteraan(dienblad);
+    }
+
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
+        for (String artikel : artikelnamen){
+            Artikel nieuwArtikel = new Artikel(artikel, 1.00f);
+            dienblad.voegToe(nieuwArtikel);
+        }
+        //kassarij.sluitAchteraan(dienblad);
     }
 
     /**
