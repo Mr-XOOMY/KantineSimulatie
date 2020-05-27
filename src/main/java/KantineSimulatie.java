@@ -42,6 +42,7 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
             kantine.resetKassa();
         }
+
     }
 
     /**

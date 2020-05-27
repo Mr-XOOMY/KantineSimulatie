@@ -10,7 +10,7 @@ public class Dienblad {
      * Constructor
      */
     public Dienblad() {
-        ArrayList<Artikel> artikelen = new ArrayList<>();
+        artikelen = new ArrayList<>();
     }
 
     /**
@@ -29,6 +29,7 @@ public class Dienblad {
      */
     public void voegToe(Artikel artikel) {
         artikelen.add(artikel);
+        System.out.println(artikelen.toString());
     }
 
     /**
