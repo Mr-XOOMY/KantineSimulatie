@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 public class KassaRij {
 
-    private ArrayList<Dienblad> klanten;
+    private LinkedList<Dienblad> klanten;
 
     /**
      * Constructor
