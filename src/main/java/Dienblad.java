@@ -37,9 +37,9 @@ public class Dienblad {
      *
      * @return Het aantal artikelen
      */
-    public int getAantalArtikelen() {
-        return artikelen.size();
-    }
+//    public int getAantalArtikelen() {
+//        return artikelen.size();
+//    }
 
     /**
      * Verwijderd alle artikelen in de ArrayList artikelen
@@ -53,12 +53,17 @@ public class Dienblad {
      *
      * @return De totaalprijs
      */
-    public double getTotaalPrijs() {
-        int totaal = 0;
-        for(Artikel artikel : artikelen){
-            totaal += artikel.getPrijs();
-        }
-        return totaal;
+//    public double getTotaalPrijs() {
+//        int totaal = 0;
+//        for(Artikel artikel : artikelen){
+//            totaal += artikel.getPrijs();
+//        }
+//        return totaal;
+//    }
+
+    public Iterator<Artikel> getArtikel(){
+        Iterator<Artikel> iterator = artikelen.iterator();
+        return iterator;
     }
 }
 
