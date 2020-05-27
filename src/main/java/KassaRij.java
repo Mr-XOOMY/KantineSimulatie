@@ -9,7 +9,7 @@ public class KassaRij {
      * Constructor
      */
     public KassaRij() {
-        klanten = new ArrayList<>();
+        klanten = new LinkedList<>();
     }
 
     /**

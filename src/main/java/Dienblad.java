@@ -10,7 +10,7 @@ public class Dienblad {
      * Constructor
      */
     public Dienblad() {
-        artikelen = new ArrayList<>();
+        artikelen = new Stack<>();
     }
 
     /**
