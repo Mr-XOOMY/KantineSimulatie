@@ -1,0 +1,62 @@
+Week 1 Opgave 1
+b.
+Je hebt hierboven twee instantievariabelen gedeclareerd. Voordat je ze zinnig zou kunnen gebruiken moet je ze wel initialiseren. Leg uit wat de begrippen declaratie en initialisatie betekenen.
+
+Bij declaratie wordt er naam gegeven aan een geheugenslot voor een bepaald datatype om op een later moment een waarde aan toe te wijzen.
+Bij initialisatie, wordt er een waarde toegekend aan een gedeclareerd variabel.
+
+Week 2 Opgave 1
+a.	Leg uit waarom het gebruik van een while lus in de methode verwerkRijVoorKassa() handiger is dan een for lus. b. Implementeer de ontbrekende methoden.
+
+Bij een while-lus kan je een conditie gebruiken die oneindig wordt gecheckt totdat de waarde True naar False (of vice versa) gaat, waarmee een counter zoals in een for-loop niet nodig is.
+
+b.	Implementeer de ontbrekende methoden.
+
+Week 2 Opgave 4
+a.	public double hoeveelheidGeldInKassa(), public int aantalArtikelen(), public void resetKassa().
+
+Opgave 5
+a.	Zodat deze private methoden enkel binnen de KantineAanbod klasse aangeroepen kunnen worden.
+b.	HashSet gebruik je wanneer je unieke waarden in de lijst wil opslaan die niet met een indexnummer zijn verbonden. Een HashMap kan verschillende soorten datatypen als index-waarde gebruiken. Zoals; Strings en int’s. Voorbeeld:
+
+HashMap<String, String> hoofdsteden = new HashMap<>();
+hoofdsteden.put(“Nederland”, “Amsterdam”);
+
+Opgave 6
+a.	In de parameterloze constructor KantineSimulatie() wordt een instantie gemaakt van de klasse ‘Kantine’ onder het variabel ‘kantine’. Alsmede wordt er een instantie gemaakt van de Random klasse onder het variabel ‘random’.
+
+Vervolgens wordt er een array genaamd ‘hoeveelheden’ waarin waarden van het primitieve datatype ‘int’ in opgeslagen kunnen worden. Hierin wordt tijdens het aanmaken, random waarden toegevoegd door middel van de methode ‘getRandomArray()’.
+
+Na het aanmaken van de array wordt er een object gemaakt onder het variabel kantineaanbod van het type KantineAanbod().
+
+Tot slot wordt het kantineaanbod toegevoegd aan het kantine-object.
+
+b.	getRandomValue() geeft een int-waarde terug die tussen de minimale en maximale aangegeven waarden zit. De eerste waarde van random.nextInt() is inclusive en de laatste exclusive.
+Dit betekent dat als de minimale waarde 10 is en de maximale waarde 50 random.nextInt() 50 - 9 invult. Om dit te verhelpen doe je +1 om 9 + 1 = 10 te krijgen, om zo de ingevulde waarden te behouden.
+
+
+Week 3
+
+Opgave 2c
+Java heeft standaard een ‘constructor’ die wordt aangeroepen.
+
+Opgave 2d
+
+Omdat een andere klasse deze methodes kan aanroepen en kan toepassen op een array, zodat van de Administratie-klasse geen instantie gemaakt hoeft te worden. Daarom zou deze klasse ook net zo goed een ‘interface’ geweest kunnen zijn.
+
+Opgave 2e
+
+Door de constructor in Administratie private te maken, zorg je ervoor dat deze methode niet vanuit een andere klasse aangeroepen mag worden. Dit betekent dus dat er ook geen objecten van kunnen worden gemaakt buiten de Administratie-klasse om.
+
+Opgave 2h
+
+De compiler klaagt hierover omdat het variabel niet ‘static’ is.
+
+Opgave 2i
+
+Omdat het aantal dagen in een week niet verandert dus DAYS_IN_WEEK een constante (final) dient te zijn.
+
+
+Opgave 3b
+
+Het keyword: super() moet altijd bovenaan staan in een constructor omdat de constructor van de parentklasse eerder moet worden aangeroepen dan die van de child-klasse.
