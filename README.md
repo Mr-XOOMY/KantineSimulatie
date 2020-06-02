@@ -1,6 +1,6 @@
 # ITVP19DAV1A
 
-Project KantineSimulatie SE/NSE voor Object-georienteerd Programmeren 2
+Project KantineSimulatie_2 SE/NSE voor Object-georienteerd Programmeren 2
 
 Dit is het kantine simulatie project van Dimitri Kalaïtzakis en Roland Regtop.
 Dit is het laatste project dat gemaakt moet worden voor leerjaar 1.
