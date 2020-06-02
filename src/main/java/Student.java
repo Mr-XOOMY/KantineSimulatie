@@ -28,4 +28,9 @@ public class Student extends Persoon {
     public String getStudierichting() {
         return studierichting;
     }
+
+    @Override
+    public String toString() {
+        return "BSN: " + getBsn() + "\nVoornaam: " + getVoornaam() + "\nAchternaam: " + getAchternaam() + "\nGeboortedatum: " + getGeboortedatum() + "\nGeslacht: " + getGeslacht() + "\nStudentnummer: " + getStudentnummer() + "\nStudierichting: " + getStudierichting();
+    }
 }
