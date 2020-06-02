@@ -30,7 +30,7 @@ public class KantineSimulatie_1 {
 
             for (int j = 0; j < 10 + i; j++) {
                 // kantine.(...);
-                kantine.loopPakSluitAan();
+                //kantine.loopPakSluitAan();
             }
 
             // verwerk rij voor de kassa

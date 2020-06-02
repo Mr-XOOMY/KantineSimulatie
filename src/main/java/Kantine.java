@@ -17,22 +17,22 @@ public class Kantine {
      * voor de kassa.
      */
 
-    public void loopPakSluitAan() {
-        Persoon persoon = new Persoon(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man");
-        Dienblad dienblad = new Dienblad(persoon);
-        Artikel kaas = new Artikel("Kaas", 5.00f);
-        Artikel kalasjnikov = new Artikel("Kalasjnikov", 400.00f);
-        dienblad.voegToe(kaas);
-        dienblad.voegToe(kalasjnikov);
-        kassarij.sluitAchteraan(dienblad);
-    }
+//    public void loopPakSluitAan() {
+//        Persoon persoon = new Persoon(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man");
+//        Dienblad dienblad = new Dienblad(persoon);
+//        Artikel kaas = new Artikel("Kaas", 5.00f);
+//        Artikel kalasjnikov = new Artikel("Kalasjnikov", 400.00f);
+//        dienblad.voegToe(kaas);
+//        dienblad.voegToe(kalasjnikov);
+//        kassarij.sluitAchteraan(dienblad);
+//    }
 
     public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
         for (String artikel : artikelnamen){
             Artikel nieuwArtikel = new Artikel(artikel, 1.00f);
             dienblad.voegToe(nieuwArtikel);
         }
-        //kassarij.sluitAchteraan(dienblad);
+        kassarij.sluitAchteraan(dienblad);
     }
 
     /**
