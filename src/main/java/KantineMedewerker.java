@@ -32,8 +32,11 @@ public class KantineMedewerker extends Persoon{
      *
      * @return Geeft de waarde van magAchterDeKassaStaan terug
      */
-    public boolean isMagAchterDeKassaStaan() {
-        return magAchterDeKassaStaan;
+    public String isMagAchterDeKassaStaan() {
+        if (magAchterDeKassaStaan){
+            return "ja";
+        }
+        return "nee";
     }
 
     /**
@@ -50,5 +53,10 @@ public class KantineMedewerker extends Persoon{
      */
     public void setMagAchterDeKassaStaan(boolean magAchterDeKassaStaan) {
         this.magAchterDeKassaStaan = magAchterDeKassaStaan;
+    }
+
+    @Override
+    public String toString() {
+        return "BSN: " + getBsn() + "\nVoornaam: " + getVoornaam() + "\nAchternaam: " + getAchternaam() + "\nGeboortedatum: " + getGeboortedatum() + "\nGeslacht: " + getGeslacht() + "\nMedewerkersnummer: " + getMedewerkersNummer() + "\nMag achter de kassa staan: " + isMagAchterDeKassaStaan();
     }
 }

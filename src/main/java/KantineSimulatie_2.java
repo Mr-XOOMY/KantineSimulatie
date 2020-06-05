@@ -119,17 +119,24 @@ public class KantineSimulatie_2 {
                 Dienblad dienblad;
 
                 if (aantalStudent < 89){
-                    Student student = new Student(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man", 123456789, "IT");
+                    Student student = new Student(123456789, "Pietje", "Puk", new Datum(29, 02, 2000), "man", 123456789, "IT");
                     dienblad = new Dienblad(student);
+                    System.out.println(student.toString());
+                    aantalStudent++;
                 }else if (aantalDocent < 10){
-                    Docent docent = new Docent(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man", "doce", "IT");
+                    Docent docent = new Docent(123456789, "Klaasje", "Puk", new Datum(29, 02, 2020), "man", "doce", "IT");
                     dienblad = new Dienblad(docent);
+                    System.out.println(docent.toString());
+                    aantalDocent++;
                 }else if (aantalKantineMedewerker < 1){
-                    KantineMedewerker kantineMedewerker = new KantineMedewerker(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man", 987654321, true);
+                    KantineMedewerker kantineMedewerker = new KantineMedewerker(123456789, "Jantje", "Puk", new Datum(20, 05, 2020), "man", 987654321, true);
                     dienblad = new Dienblad(kantineMedewerker);
+                    System.out.println(kantineMedewerker.toString());
+                    aantalKantineMedewerker++;
                 }else {
-                    Persoon persoon = new Persoon(123456789, "Pietje", "Puk", new Datum(20, 05, 2020), "man");
+                    Persoon persoon = new Persoon(123456789, "Individu", "Puk", new Datum(20, 05, 2020), "man");
                     dienblad = new Dienblad(persoon);
+                    System.out.println(persoon.toString());
                 }
 
                 // genereer de "artikelnummers", dit zijn indexen
