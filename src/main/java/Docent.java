@@ -51,4 +51,9 @@ public class Docent extends Persoon {
     public void setAfdeling(String afdeling) {
         this.afdeling = afdeling;
     }
+
+    @Override
+    public String toString() {
+        return "BSN: " + getBsn() + "\nVoornaam: " + getVoornaam() + "\nAchternaam: " + getAchternaam() + "\nGeboortedatum: " + getGeboortedatum() + "\nGeslacht: " + getGeslacht() + "\nAfkorting: " + getAfkorting() + "\nAfdeling: " + getAfdeling();
+    }
 }

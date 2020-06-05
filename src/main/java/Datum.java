@@ -89,13 +89,13 @@ public class Datum {
 	 */
 	public boolean bestaatDatum(int dag, int maand, int jaar) {
 		boolean dagBestaat = (dag >= 1 && dag <= 31);
-		boolean maandBestaat = (maand >= 1 && dag <= 12);
-		boolean jaarBestaat = (jaar >= 1900 && dag <= 2100);
-		boolean combiBestaat;
+		boolean maandBestaat = (maand >= 1 && maand <= 12);
+		boolean jaarBestaat = (jaar >= 1900 && jaar <= 2100);
+		boolean combiBestaat = true;
 
 		switch (maand){
 			case 2:
-				combiBestaat = (((jaar % 4) == 0) && ((jaar % 400) == 0) && ((jaar % 100) != 0)) ? (dag <= 29) : (dag <= 28);
+				combiBestaat = (((jaar % 4) == 0) && ((jaar % 400) == 0) || ((jaar % 100) != 0)) ? (dag <= 29) : (dag <= 28);
 				break;
 			case 4:
 				combiBestaat = (dag <= 30);
@@ -109,8 +109,6 @@ public class Datum {
 			case 11:
 				combiBestaat = (dag <= 30);
 				break;
-			default:
-				combiBestaat = false;
 		}
 
 		return ((dagBestaat) && (maandBestaat) && (jaarBestaat) && (combiBestaat));
