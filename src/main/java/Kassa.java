@@ -38,6 +38,21 @@ public class Kassa {
         }else if(klant.getKlant() instanceof KantineMedewerker){
             totaalPrijs -= (totaalPrijs / 100) *35;
         }
+
+        // Controleert betaling
+        klant.getKlant().setBetaalwijze();
+        Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
+        if(betaalwijze instanceof Contant){
+            betaalwijze.setSaldo(15.00);
+        }else if(betaalwijze instanceof Pinpas){
+            betaalwijze.setSaldo(15.00);
+            ((Pinpas) betaalwijze).setKredietLimiet(15.00);
+        }
+        if(betaalwijze.betaal(totaalPrijs)){
+            System.out.println("Betaling gelukt.");
+        }else{
+            System.out.println("Betaling mislukt.");
+        }
     }
 
     /**
