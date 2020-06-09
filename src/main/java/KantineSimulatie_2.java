@@ -110,31 +110,32 @@ public class KantineSimulatie_2 {
             int aantalpersonen = 100 ;
 
             // laat de personen maar komen...
-            int aantalStudent = 0;
-            int aantalDocent = 0;
-            int aantalKantineMedewerker = 0;
+//            int aantalStudent = 0;
+//            int aantalDocent = 0;
+//            int aantalKantineMedewerker = 0;
             Dienblad dienblad = null;
             Persoon persoon;
             int totaalArtikelen = 0;
             for (int j = 0; j < aantalpersonen; j++) {
+
+                // genereert getal tussen range 0 - 99 en + 1 zorgt voor range 1 - 100
+                int getal =  random.nextInt(101 - 1) + 1;
 
                 // maak persoon en dienblad aan, koppel ze
                 // en bedenk hoeveel artikelen worden gepakt
                 int aantalartikelen = getRandomValue(1, 5);
                 
 
-                if (aantalStudent < 89){
+                if (getal >= 1 && getal <= 89){
                     persoon = new Student(123456789, "Pietje", "Puk", new Datum(29, 02, 2000), "man", 123456789, "IT");
-                    aantalStudent++;
-                }else if (aantalDocent < 10){
+                }else if (getal >= 90 && getal <= 99){
                     persoon = new Docent(123456789, "Klaasje", "Puk", new Datum(29, 02, 2020), "man", "doce", "IT");
-                    aantalDocent++;
-                }else if (aantalKantineMedewerker < 1){
+                }else if (getal == 100){
                     persoon = new KantineMedewerker(123456789, "Jantje", "Puk", new Datum(20, 05, 2020), "man", 987654321, true);
-                    aantalKantineMedewerker++;
                 }else {
                     persoon = new Persoon(123456789, "Individu", "Puk", new Datum(20, 05, 2020), "man");
                 }
+
 
                 dienblad = new Dienblad(persoon);
                 System.out.println(persoon.toString());
