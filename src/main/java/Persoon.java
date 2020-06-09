@@ -1,9 +1,12 @@
+import java.util.Random;
+
 public class Persoon {
     private int bsn;
     private String voornaam;
     private String achternaam;
     private Datum geboortedatum;
     private char geslacht;
+    private Betaalwijze betaalwijze ;
 
     /**
      * Constructor
@@ -126,6 +129,30 @@ public class Persoon {
         else {
             this.geslacht = 'o';
         }
+    }
+
+    /**
+     * Getter betaalwijze
+     * @return Verkrijgt betaalwijze
+     */
+    public Betaalwijze getBetaalwijze() {
+        return betaalwijze;
+    }
+
+    /**
+     * Setter betaalwijze
+     */
+    public void setBetaalwijze() {
+
+        if(new Random(2).nextInt() == 0){
+            Betaalwijze c = new Contant();
+            this.betaalwijze = c;
+        }
+        else {
+            Betaalwijze p = new Pinpas();
+            this.betaalwijze = p;
+        }
+
     }
 
     @Override

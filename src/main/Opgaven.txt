@@ -60,3 +60,9 @@ Omdat het aantal dagen in een week niet verandert dus DAYS_IN_WEEK een constante
 Opgave 3b
 
 Het keyword: super() moet altijd bovenaan staan in een constructor omdat de constructor van de parentklasse eerder moet worden aangeroepen dan die van de child-klasse.
+
+
+Week 4
+Opgave 1b WTF is een sequentie-diagram
+
+
