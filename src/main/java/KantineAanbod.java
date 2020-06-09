@@ -5,7 +5,7 @@ public class KantineAanbod {
     private HashMap<String, ArrayList<Artikel>> aanbod;
     private HashMap<String, Integer> startVoorraad;
     private HashMap<String, Double> prijzen;
-    private KantineAanbod kantineAanbod;
+    private static KantineAanbod kantineAanbod;
 
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen, het tweede argument is
@@ -80,7 +80,7 @@ public class KantineAanbod {
      *
      * @return
      */
-    public KantineAanbod getKantineAanbod() {
+    public static KantineAanbod getKantineAanbod() {
         return kantineAanbod;
     }
 

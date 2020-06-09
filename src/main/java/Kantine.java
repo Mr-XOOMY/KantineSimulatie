@@ -2,7 +2,6 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
-
     /**
      * Constructor
      */
@@ -29,8 +28,7 @@ public class Kantine {
 
     public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen) {
         for (String artikel : artikelnamen){
-            Artikel nieuwArtikel = new Artikel(artikel, 1.00f);
-            dienblad.voegToe(nieuwArtikel);
+            dienblad.voegToe(KantineAanbod.getKantineAanbod().getArtikel(artikel));
         }
         kassarij.sluitAchteraan(dienblad);
     }
@@ -40,7 +38,7 @@ public class Kantine {
      */
     public void verwerkRijVoorKassa() {
         while (kassarij.erIsEenRij()) {
-            kassarij.eerstePersoonInRij();
+            kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }
 

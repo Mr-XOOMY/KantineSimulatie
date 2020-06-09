@@ -2,8 +2,8 @@ import java.util.Iterator;
 
 public class Kassa {
     private KassaRij kassaRij;
-    private int totaalAantalArtikelen = 0;
-    private double totaalPrijs = 0;
+    private static int totaalAantalArtikelen = 0;
+    private static double totaalPrijs = 0;
 
     /**
      * Constructor
@@ -31,8 +31,8 @@ public class Kassa {
             totaalAantalArtikelen++;
             totaalPrijs += artikel.getPrijs();
         }
-        System.out.println(totaalAantalArtikelen + aantalArtikelen());
-        System.out.println(totaalPrijs + hoeveelheidGeldInKassa());
+//        System.out.println(totaalAantalArtikelen + aantalArtikelen());
+//        System.out.println(totaalPrijs + hoeveelheidGeldInKassa());
     }
 
     /**
