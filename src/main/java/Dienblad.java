@@ -65,5 +65,9 @@ public class Dienblad {
         Iterator<Artikel> iterator = artikelen.iterator();
         return iterator;
     }
+
+    public Persoon getKlant(){
+        return klant;
+    }
 }
 
