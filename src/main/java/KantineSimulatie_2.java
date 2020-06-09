@@ -175,7 +175,33 @@ public class KantineSimulatie_2 {
         System.out.println("#############################################");
         System.out.println();
         System.out.println("Gemiddelde aantal artikelen per dag: " + Administratie.berekenGemiddeldAantal(aantal));
-        System.out.println("Gemiddelde omzet per dag: " + (Administratie.berekenGemiddeldeOmzet(omzet)));
+        System.out.println("Gemiddelde omzet totaal: " + (Administratie.berekenGemiddeldeOmzet(omzet)));
+        System.out.println("Dagomzet: ");
+        for(int i = 0; i < Administratie.berekenDagOmzet(omzet).length; i++){
+            switch(i){
+                case 0:
+                    System.out.println("Maandag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 1:
+                    System.out.println("Dinsdag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 2:
+                    System.out.println("Woensdag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 3:
+                    System.out.println("Donderdag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 4:
+                    System.out.println("Vrijdag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 5:
+                    System.out.println("Zaterdag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+                case 6:
+                    System.out.println("Zondag: " + Administratie.berekenDagOmzet(omzet)[i]);
+                    break;
+            }
+        }
 
 
 
@@ -188,7 +214,7 @@ public class KantineSimulatie_2 {
         int dagen;
 
         if (args.length == 0) {
-            dagen = 7;
+            dagen = 4;
         } else {
             dagen = Integer.parseInt(args[0]);
         }
