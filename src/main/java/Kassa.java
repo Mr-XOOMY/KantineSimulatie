@@ -20,8 +20,6 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-//        totaalAantalArtikelen = klant.getAantalArtikelen();
-//        totaalPrijs = klant.getTotaalPrijs();
 
         Iterator<Artikel> lijst_artikelen = klant.getArtikel();
         Artikel artikel;
@@ -31,8 +29,15 @@ public class Kassa {
             totaalAantalArtikelen++;
             totaalPrijs += artikel.getPrijs();
         }
-//        System.out.println(totaalAantalArtikelen + aantalArtikelen());
-//        System.out.println(totaalPrijs + hoeveelheidGeldInKassa());
+
+        if(klant.getKlant() instanceof Docent){
+            double kortingsBedrag = (totaalPrijs / 100) * 25;
+            if(kortingsBedrag > 1.00){
+                totaalPrijs -= 1.00;
+            }
+        }else if(klant.getKlant() instanceof KantineMedewerker){
+            totaalPrijs -= (totaalPrijs / 100) *35;
+        }
     }
 
     /**

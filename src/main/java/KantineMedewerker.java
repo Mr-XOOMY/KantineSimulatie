@@ -1,4 +1,4 @@
-public class KantineMedewerker extends Persoon{
+public class KantineMedewerker extends Persoon implements KortingskaartHouder {
 
     private int medewerkersNummer;
     private boolean magAchterDeKassaStaan;
@@ -55,8 +55,30 @@ public class KantineMedewerker extends Persoon{
         this.magAchterDeKassaStaan = magAchterDeKassaStaan;
     }
 
+    /**
+     *
+     * @return Kortings percentage
+     */
     @Override
-    public String toString() {
-        return "BSN: " + getBsn() + "\nVoornaam: " + getVoornaam() + "\nAchternaam: " + getAchternaam() + "\nGeboortedatum: " + getGeboortedatum() + "\nGeslacht: " + getGeslacht() + "\nMedewerkersnummer: " + getMedewerkersNummer() + "\nMag achter de kassa staan: " + isMagAchterDeKassaStaan();
+    public double geefKortingsPercentage() {
+        return 35;
+    }
+
+    /**
+     *
+     * @return Maximum ja/nee
+     */
+    @Override
+    public boolean heeftMaximum() {
+        return false;
+    }
+
+    /**
+     *
+     * @return Maximum kortings waarde
+     */
+    @Override
+    public double geefMaximum() {
+        return 0;
     }
 }
