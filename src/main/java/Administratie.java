@@ -40,8 +40,7 @@ public class Administratie {
      */
     public static double[] berekenDagOmzet(double[] omzet) {
         double[] temp = new double[DAYS_IN_WEEK];
-        if(omzet.length > DAYS_IN_WEEK){
-            for(int i = 0; i < DAYS_IN_WEEK; i++) {
+            for(int i = 0; i < omzet.length; i++) {
 
                 int j = 0;
                 while ( (7 * j) < omzet.length ) {
@@ -50,7 +49,6 @@ public class Administratie {
                 }
 
             }
-        }
         return temp;
     }
 }
