@@ -6,7 +6,9 @@ public class Persoon {
     private String achternaam;
     private Datum geboortedatum;
     private char geslacht;
-    private Betaalwijze betaalwijze ;
+    private Betaalwijze betaalwijze;
+    private Contant c;
+    private Pinpas p;
 
     /**
      * Constructor
@@ -22,6 +24,9 @@ public class Persoon {
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
         setGeslacht(geslacht);
+        c = new Contant();
+        p = new Pinpas();
+        p.setKredietLimiet(-5.0);
     }
 
     /**
@@ -143,14 +148,12 @@ public class Persoon {
      * Setter betaalwijze
      */
     public void setBetaalwijze() {
-
-        if(new Random(2).nextInt() == 0){
-            Betaalwijze c = new Contant();
-            this.betaalwijze = c;
+        int getal = new Random().nextInt(2);
+        if(getal == 0){
+            betaalwijze = c;
         }
         else {
-            Betaalwijze p = new Pinpas();
-            this.betaalwijze = p;
+            betaalwijze = p;
         }
 
     }

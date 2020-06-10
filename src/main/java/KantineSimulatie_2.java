@@ -128,7 +128,6 @@ public class KantineSimulatie_2 {
 
                 if (getal >= 1 && getal <= 89){
                     persoon = new Student(123456789, "Pietje", "Puk", new Datum(29, 02, 2000), "man", 123456789, "IT");
-
                 }else if (getal >= 90 && getal <= 99){
                     persoon = new Docent(123456789, "Klaasje", "Puk", new Datum(29, 02, 2020), "man", "doce", "IT");
                 }else if (getal == 100){
@@ -139,6 +138,8 @@ public class KantineSimulatie_2 {
 
 
                 dienblad = new Dienblad(persoon);
+                dienblad.getKlant().setBetaalwijze();
+                dienblad.getKlant().getBetaalwijze().setSaldo(5);
                 System.out.println(persoon.toString());
 
                 // genereer de "artikelnummers", dit zijn indexen
