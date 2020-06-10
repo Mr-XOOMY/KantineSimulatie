@@ -5,8 +5,9 @@ public class Contant extends Betaalwijze {
     public boolean betaal(double tebetalen) {
         if(saldo < tebetalen) {
             return false;
+        }else {
+            saldo -= tebetalen;
+            return true;
         }
-        saldo -= tebetalen;
-        return true;
     }
 }
