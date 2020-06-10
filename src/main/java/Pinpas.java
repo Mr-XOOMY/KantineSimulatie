@@ -19,6 +19,7 @@ public class Pinpas extends Betaalwijze {
             return false;
         }
         kredietlimiet -= tebetalen;
+        saldo -= tebetalen;
         return true;
     }
 }
