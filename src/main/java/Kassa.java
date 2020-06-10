@@ -4,7 +4,7 @@ public class Kassa {
     private KassaRij kassaRij;
     private static int totaalAantalArtikelen = 0;
     private static double totaalPrijs = 0;
-
+    private static double totaalPrijsArtikelen = 0;
     /**
      * Constructor
      */
@@ -28,31 +28,31 @@ public class Kassa {
             artikel = lijst_artikelen.next();
             totaalAantalArtikelen++;
             totaalPrijs += artikel.getPrijs();
+            totaalPrijsArtikelen += artikel.getPrijs();
         }
 
-        if(klant.getKlant() instanceof Docent){
-            double kortingsBedrag = (totaalPrijs / 100) * 25;
-            if(kortingsBedrag > 1.00){
-                totaalPrijs -= 1.00;
+        if(klant.getKlant() instanceof KortingskaartHouder){
+            if(((KortingskaartHouder) klant.getKlant()).heeftMaximum()){
+                if(((totaalPrijsArtikelen / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage()) > ((KortingskaartHouder) klant.getKlant()).geefMaximum()) {
+                    totaalPrijsArtikelen -= ((KortingskaartHouder) klant.getKlant()).geefMaximum();
+                }
+            }else {
+                totaalPrijsArtikelen -= (totaalPrijsArtikelen / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage();
             }
-        }else if(klant.getKlant() instanceof KantineMedewerker){
-            totaalPrijs -= (totaalPrijs / 100) *35;
         }
 
         // Controleert betaling
         klant.getKlant().setBetaalwijze();
         Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
-        if(betaalwijze instanceof Contant){
-            betaalwijze.setSaldo(15.00);
-        }else if(betaalwijze instanceof Pinpas){
-            betaalwijze.setSaldo(15.00);
-            ((Pinpas) betaalwijze).setKredietLimiet(15.00);
-        }
-        if(betaalwijze.betaal(totaalPrijs)){
+
+
+
+        if(betaalwijze.betaal(totaalPrijsArtikelen)){
             System.out.println("Betaling gelukt.");
         }else{
             System.out.println("Betaling mislukt.");
         }
+        totaalPrijsArtikelen = 0;
     }
 
     /**
