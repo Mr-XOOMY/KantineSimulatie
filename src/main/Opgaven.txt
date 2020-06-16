@@ -65,4 +65,52 @@ Het keyword: super() moet altijd bovenaan staan in een constructor omdat de cons
 Week 4
 Opgave 1b WTF is een sequentie-diagram
 
+Opgave 1c
+- Dit geeft ons de mogelijkheid om het saldo aan te passen zonder daar specifieke methoden voor te schrijven.
+
+Opgave 3a
+- Je kan van een Interface geen object maken omdat interfaces geen implementeerbare methoden bevatten, daarom is er geen reden
+- om een interface te instantiëren.
+
+Opgave 3b
+- Omdat een abstracte klasse in essentie een incomplete klasse met abstracte methoden zonder body is,
+- kan daarvan geen object/instantie worden gemaakt.
+
+Opgave 3c
+- Een klasse kan maar 1 klasse 'extenden'
+
+Opgave 3d
+- Een klasse kan meerdere interfaces implementeren
+
+Opgave 3e
+- Een klasse kan 1 andere klasse 'extenden' en meerdere interfaces implementeren tegelijkertijd
+
+Opgave 3f
+- Een methode in een interface is niet per definitie abstract.
+
+Opgave 3g
+- Een abstracte methode kan zich enkel in een abstracte klasse bevinden.
+
+Opgave 3h
+- Polymorfisme betekent 'Vele vormen', -> Een klant kan meerdere typen personen zijn. Een klant kan een
+- Docent maar ook een Student zijn.
+
+Opgave 4a
+- Een abstracte klasse kan ook niet-abstracte methoden bevatten.
+
+Opgave 4b
+- Een sub-klasse van een abstracte klasse moet altijd alle abstracte methoden implementeren.
+- De abstracte methoden in een abstracte klasse hebben geen body.
+
+Opgave 4c
+- Je zorgt er alsnog voor dat je de methode implementeert. Want alles moet geïmplementeerd worden,
+- tenzij de klasse abstract is, maar uiteindelijk zal toch ergens de methode geïmplementeerd moeten worden.
+- Mocht je de methode echt niet willen gebruiken, dan kun je een NotImplementedException "throwen".
+
+
+Opgave 4d
+- In Java is abstract voor een variabel declaratie niet toegestaan.
+
+Opgave 4e
+- final is "not-mutible" en abstract is "mutible", abstract final kan dus niet.(contradictio in terminis)
 
