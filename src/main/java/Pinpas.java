@@ -16,10 +16,10 @@ public class Pinpas extends Betaalwijze {
      */
     public void betaal(double tebetalen) throws TeWeinigGeldException {
 
-            if ((saldo - tebetalen) > kredietlimiet) {
+            if ((saldo - tebetalen) >= kredietlimiet) {
                 saldo -= tebetalen;
             } else {
-                throw new TeWeinigGeldException("Te-Weinig-Geld");
+                throw new TeWeinigGeldException(" is een arme sloeber.");
             }
         }
     }

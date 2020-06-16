@@ -5,7 +5,7 @@ public class Contant extends Betaalwijze {
      */
     public void betaal(double tebetalen) throws TeWeinigGeldException {
         if(saldo < tebetalen) {
-            throw new TeWeinigGeldException("Te-Weinig-Geld");
+            throw new TeWeinigGeldException(" is een arme sloeber.");
         }else {
             saldo -= tebetalen;
         }

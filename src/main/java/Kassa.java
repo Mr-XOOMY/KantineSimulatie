@@ -46,6 +46,13 @@ public class Kassa {
         Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
 
 
+        try {
+            betaalwijze.betaal(totaalPrijsArtikelen);
+        }catch(TeWeinigGeldException message) {
+            String klant_naam = klant.getKlant().getVoornaam();
+            System.out.printf(klant_naam);
+        }
+
         totaalPrijsArtikelen = 0;
     }
 
