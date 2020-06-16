@@ -12,7 +12,7 @@ public class TeWeinigGeldException extends RuntimeException {
 
 
     public TeWeinigGeldException(String message) {
-
+        System.out.println(message);
     }
 
 }
