@@ -44,19 +44,8 @@ public class Kassa {
         // Controleert betaling
         klant.getKlant().setBetaalwijze();
         Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
-        if(betaalwijze.betaal(totaalPrijsArtikelen)){
-            if (betaalwijze instanceof Contant){
-                System.out.println("Contante betaling gelukt.");
-            }else {
-                System.out.println("Pin betaling gelukt.");
-            }
-        }else{
-            if (betaalwijze instanceof Contant){
-                System.out.println("Contante betaling mislukt.");
-            }else {
-                System.out.println("Pin betaling mislukt.");
-            }
-        }
+
+
         totaalPrijsArtikelen = 0;
     }
 

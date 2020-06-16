@@ -33,6 +33,7 @@ public class KantineSimulatie_2 {
     private static final int MIN_ARTIKELEN_PER_PERSOON = 1;
     private static final int MAX_ARTIKELEN_PER_PERSOON = 4;
 
+
     /**
      * Constructor
      *
@@ -46,6 +47,7 @@ public class KantineSimulatie_2 {
 
         kantineaanbod.setKantineAanbod(kantineaanbod);
     }
+
 
     /**
      * Methode om een array van random getallen liggend tussen min en max van de gegeven lengte te
@@ -156,8 +158,7 @@ public class KantineSimulatie_2 {
             }
 
             // verwerk rij voor de kassa
-            kantine.verwerkRijVoorKassa();
-
+                kantine.verwerkRijVoorKassa();
 
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
             System.out.println("#############################################");
