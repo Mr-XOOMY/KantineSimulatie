@@ -1,18 +1,18 @@
-public class TeWeinigGeldException extends RuntimeException {
+public class TeWeinigGeldException extends Exception {
 
 
     public TeWeinigGeldException() {
-
+        super();
     }
 
 
     public TeWeinigGeldException(Exception e) {
-
+        super(e);
     }
 
 
     public TeWeinigGeldException(String message) {
-        System.out.println(message);
+        super(message);
     }
 
 }
