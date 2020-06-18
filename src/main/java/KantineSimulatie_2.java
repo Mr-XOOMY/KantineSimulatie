@@ -115,9 +115,6 @@ public class KantineSimulatie_2 {
             int aantalpersonen = 100 ;
 
             // laat de personen maar komen...
-//            int aantalStudent = 0;
-//            int aantalDocent = 0;
-//            int aantalKantineMedewerker = 0;
             Dienblad dienblad = null;
             Persoon persoon;
             int totaalArtikelen = 0;

@@ -18,9 +18,21 @@ public class KantineAanbod {
         prijzen = new HashMap<String, Double>();
         for (int i = 0; i < artikelnaam.length; i++) {
             ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
-            for (int j = 0; j < hoeveelheid[i]; j++) {
-                artikelen.add(new Artikel(artikelnaam[i], (float) prijs[i]));
+            int getal = new Random().nextInt(2);
+            if(getal == 0){
+                for (int j = 0; j < hoeveelheid[i]; j++) {
+                    Artikel artikel = new Artikel(artikelnaam[i], (float) prijs[i]);
+                    float korting = (float) (prijs[i] / 100) * 20;
+                    artikel.setKorting(korting);
+                    artikelen.add(artikel);
+                }
+            }else {
+                for (int j = 0; j < hoeveelheid[i]; j++) {
+                    Artikel artikel = new Artikel(artikelnaam[i], (float) prijs[i]);
+                    artikelen.add(artikel);
+                }
             }
+
             startVoorraad.put(artikelnaam[i], hoeveelheid[i]);
             prijzen.put(artikelnaam[i], prijs[i]);
             aanbod.put(artikelnaam[i], artikelen);

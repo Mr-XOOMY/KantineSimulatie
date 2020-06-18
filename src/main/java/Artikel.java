@@ -1,6 +1,7 @@
 public class Artikel {
     private String naam;
     private float prijs;
+    private float korting;
 
     /**
      * Constructor
@@ -10,6 +11,12 @@ public class Artikel {
     public Artikel(String naam, float prijs) {
         this.naam = naam;
         this.prijs = prijs;
+        korting = 0;
+    }
+
+    public Artikel(String naam, float prijs, float korting) {
+        this(naam, prijs);
+        this.korting = korting;
     }
 
     /**
@@ -49,6 +56,14 @@ public class Artikel {
      */
     public void setPrijs(float prijs) {
         this.prijs = prijs;
+    }
+
+    public float getKorting() {
+        return korting;
+    }
+
+    public void setKorting(float korting) {
+        this.korting = korting;
     }
 
     @Override
