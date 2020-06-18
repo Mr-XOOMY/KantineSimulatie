@@ -114,3 +114,39 @@ Opgave 4d
 Opgave 4e
 - final is "not-mutible" en abstract is "mutible", abstract final kan dus niet.(contradictio in terminis)
 
+------------------------------------------------------------------------------------------------------------------------
+
+Week 5
+
+Opgave 1d
+- Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.
+  Annotations have a number of uses, among them:
+      Information for the compiler — Annotations can be used by the compiler to detect errors or suppress warnings.
+      Compile-time and deployment-time processing — Software tools can process annotation information to generate code, XML files, and so forth.
+      Runtime processing — Some annotations are available to be examined at runtime.
+
+Opgave 1e
+- hibernate_sequence
+- student
+- student_telefoon
+- studie
+- telefoon
+
+Opgave 2a
+- Een student kan meerdere telefoons hebben.
+
+Opgave 2b
+- Bij telefoon wordt er een tussentabel gebruikt
+- Een student kan meerdere studie-inschrijvingen hebben, maar een studie-inschrijving kan geen meerdere studenten hebben.
+- https://docs.oracle.com/javaee/7/api/javax/persistence/JoinTable.html
+
+Opgave 2c
+- In de database zal een student meerdere studie-inschrijvingen kunnen hebben, maar een studie-inschrijving niet meerdere studenten.
+
+Opgave 2d
+- In de student tabel is de studentenkaart te vinden. ???
+
+Opgave 3a
+- Bij het aanmaken van de klanten.
+
+Opgave 4a
