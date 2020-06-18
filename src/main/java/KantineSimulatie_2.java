@@ -214,7 +214,7 @@ public class KantineSimulatie_2 {
 
     }
 
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie");
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie_2");
     private EntityManager manager;
 
     public void runVoorbeeld() {
