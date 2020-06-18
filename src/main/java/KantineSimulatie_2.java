@@ -1,4 +1,7 @@
 import java.util.*;
+import javax.persistence.Persistence;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 public class KantineSimulatie_2 {
 
@@ -211,6 +214,16 @@ public class KantineSimulatie_2 {
 
     }
 
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie");
+    private EntityManager manager;
+
+    public void runVoorbeeld() {
+        manager=ENTITY_MANAGER_FACTORY.createEntityManager();
+        //transactionsomitted
+        manager.close();
+        ENTITY_MANAGER_FACTORY.close();
+    }
+
     /**
     * Start een simulatie
     */
@@ -224,6 +237,7 @@ public class KantineSimulatie_2 {
         }
 
         KantineSimulatie_2 kantineSimulatie = new KantineSimulatie_2();
+        kantineSimulatie.runVoorbeeld();
         kantineSimulatie.simuleer(dagen);
     }
 }
