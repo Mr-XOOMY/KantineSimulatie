@@ -6,6 +6,7 @@ public class Kassa {
     private static int totaalAantalArtikelen = 0;
     private static double totaalPrijsKassa = 0;
     private static double totaalPrijsArtikelen = 0;
+    private static double totaalKorting = 0;
     /**
      * Constructor
      */
@@ -20,9 +21,13 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant, Kassa kassa) {
+    public void rekenAf(Dienblad klant) {
 
-        Factuur factuur = new Factuur(klant, LocalDate.now(), kassa);
+        Factuur factuur = new Factuur(klant, LocalDate.now());
+        setTotaalAantalArtikelen(factuur);
+        setTotaalPrijsArtikelen(factuur);
+        setTotaalKorting(factuur);
+        setTotaalPrijsKassa(factuur);
 
         // Controleert betaling
         klant.getKlant().setBetaalwijze();
@@ -30,7 +35,7 @@ public class Kassa {
 
 
         try {
-            betaalwijze.betaal(totaalPrijsArtikelen);
+            betaalwijze.betaal(totaalPrijsArtikelen -= totaalKorting);
         }catch(TeWeinigGeldException message) {
             String klant_naam = klant.getKlant().getVoornaam();
             System.out.println(klant_naam + message.getMessage());
@@ -53,24 +58,32 @@ public class Kassa {
     /**
      * verhoog aantal artikelen met 1
      */
-    public void setTotaalAantalArtikelen(){
-        this.totaalAantalArtikelen += 1;
+    public void setTotaalAantalArtikelen(Factuur factuur){
+        totaalAantalArtikelen += factuur.getTotaalAantalArtikelen();
     }
 
     /**
      *
-     * @param artikelPrijs
+     * @param factuur
      */
-    public void setTotaalPrijsKassa(float artikelPrijs){
-        totaalPrijsKassa += artikelPrijs;
+    public void setTotaalPrijsArtikelen(Factuur factuur){
+        totaalPrijsArtikelen += factuur.getTotaal();
     }
 
     /**
      *
-     * @param artikelPrijs
+     * @param factuur
      */
-    public void setTotaalPrijsArtikelen(float artikelPrijs){
-        totaalPrijsArtikelen += artikelPrijs;
+    public void setTotaalKorting(Factuur factuur){
+        totaalKorting += factuur.getKorting();
+    }
+
+    /**
+     *
+     * @param factuur
+     */
+    public void setTotaalPrijsKassa(Factuur factuur){
+        totaalPrijsKassa += factuur.getTotaal();
     }
 
     /**
