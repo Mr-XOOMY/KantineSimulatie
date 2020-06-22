@@ -27,18 +27,28 @@ public class Kassa {
         while(lijst_artikelen.hasNext()) {
             artikel = lijst_artikelen.next();
             totaalAantalArtikelen++;
+            float artikelNieuwePrijs;
+            if(artikel.getKorting() > 0){
+
+                artikelNieuwePrijs = artikel.getPrijs() - artikel.getKorting();
+                artikel.setPrijs(artikelNieuwePrijs);
+
+            }else{
+                if(klant.getKlant() instanceof KortingskaartHouder){
+                    if(((KortingskaartHouder) klant.getKlant()).heeftMaximum()){
+                        if(((artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage()) > ((KortingskaartHouder) klant.getKlant()).geefMaximum()) {
+                           artikelNieuwePrijs = (float) (artikel.getPrijs() - ((KortingskaartHouder) klant.getKlant()).geefMaximum());
+                           artikel.setPrijs(artikelNieuwePrijs);
+                        }
+                    }else {
+                        artikelNieuwePrijs = (float) (artikel.getPrijs() - (artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage());
+                        artikel.setPrijs(artikelNieuwePrijs);
+                    }
+                }
+            }
+
             totaalPrijs += artikel.getPrijs();
             totaalPrijsArtikelen += artikel.getPrijs();
-        }
-
-        if(klant.getKlant() instanceof KortingskaartHouder){
-            if(((KortingskaartHouder) klant.getKlant()).heeftMaximum()){
-                if(((totaalPrijsArtikelen / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage()) > ((KortingskaartHouder) klant.getKlant()).geefMaximum()) {
-                    totaalPrijsArtikelen -= ((KortingskaartHouder) klant.getKlant()).geefMaximum();
-                }
-            }else {
-                totaalPrijsArtikelen -= (totaalPrijsArtikelen / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage();
-            }
         }
 
         // Controleert betaling
