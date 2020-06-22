@@ -3,7 +3,7 @@ public class Datum {
 	private int dag;
 	private int maand;
 	private int jaar;
-
+	
 	/**
 	 * Constructor
 	 */

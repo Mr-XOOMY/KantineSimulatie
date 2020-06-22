@@ -1,9 +1,10 @@
+import java.time.LocalDate;
 import java.util.Iterator;
 
 public class Kassa {
     private KassaRij kassaRij;
     private static int totaalAantalArtikelen = 0;
-    private static double totaalPrijs = 0;
+    private static double totaalPrijsKassa = 0;
     private static double totaalPrijsArtikelen = 0;
     /**
      * Constructor
@@ -19,37 +20,9 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {
+    public void rekenAf(Dienblad klant, Kassa kassa) {
 
-        Iterator<Artikel> lijst_artikelen = klant.getArtikel();
-        Artikel artikel;
-
-        while(lijst_artikelen.hasNext()) {
-            artikel = lijst_artikelen.next();
-            totaalAantalArtikelen++;
-            float artikelNieuwePrijs;
-            if(artikel.getKorting() > 0){
-
-                artikelNieuwePrijs = artikel.getPrijs() - artikel.getKorting();
-                artikel.setPrijs(artikelNieuwePrijs);
-
-            }else{
-                if(klant.getKlant() instanceof KortingskaartHouder){
-                    if(((KortingskaartHouder) klant.getKlant()).heeftMaximum()){
-                        if(((artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage()) > ((KortingskaartHouder) klant.getKlant()).geefMaximum()) {
-                           artikelNieuwePrijs = (float) (artikel.getPrijs() - ((KortingskaartHouder) klant.getKlant()).geefMaximum());
-                           artikel.setPrijs(artikelNieuwePrijs);
-                        }
-                    }else {
-                        artikelNieuwePrijs = (float) (artikel.getPrijs() - (artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage());
-                        artikel.setPrijs(artikelNieuwePrijs);
-                    }
-                }
-            }
-
-            totaalPrijs += artikel.getPrijs();
-            totaalPrijsArtikelen += artikel.getPrijs();
-        }
+        Factuur factuur = new Factuur(klant, LocalDate.now(), kassa);
 
         // Controleert betaling
         klant.getKlant().setBetaalwijze();
@@ -78,13 +51,36 @@ public class Kassa {
     }
 
     /**
+     * verhoog aantal artikelen met 1
+     */
+    public void setTotaalAantalArtikelen(){
+        this.totaalAantalArtikelen += 1;
+    }
+
+    /**
+     *
+     * @param artikelPrijs
+     */
+    public void setTotaalPrijsKassa(float artikelPrijs){
+        totaalPrijsKassa += artikelPrijs;
+    }
+
+    /**
+     *
+     * @param artikelPrijs
+     */
+    public void setTotaalPrijsArtikelen(float artikelPrijs){
+        totaalPrijsArtikelen += artikelPrijs;
+    }
+
+    /**
      * Geeft het totaalbedrag van alle artikelen die de kassa zijn gepasseerd, vanaf het moment dat
      * de methode resetKassa is aangeroepen.
      *
      * @return hoeveelheid geld in de kassa
      */
     public double hoeveelheidGeldInKassa() {
-        return totaalPrijs;
+        return totaalPrijsKassa;
     }
 
     /**
@@ -93,6 +89,6 @@ public class Kassa {
      */
     public void resetKassa() {
         totaalAantalArtikelen = 0;
-        totaalPrijs = 0;
+        totaalPrijsKassa = 0;
     }
 }
