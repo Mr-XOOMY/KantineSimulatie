@@ -66,7 +66,7 @@ public class Kassa {
      * @param factuur
      */
     public void setTotaalPrijsArtikelen(Factuur factuur){
-        totaalPrijsArtikelen += factuur.getTotaal();
+        totaalPrijsArtikelen = factuur.getTotaal();
     }
 
     /**
@@ -74,7 +74,7 @@ public class Kassa {
      * @param factuur
      */
     public void setTotaalKorting(Factuur factuur){
-        totaalKorting += factuur.getKorting();
+        totaalKorting = factuur.getKorting();
     }
 
     /**
