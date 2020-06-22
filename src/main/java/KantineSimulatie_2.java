@@ -36,13 +36,15 @@ public class KantineSimulatie_2 {
     private static final int MIN_ARTIKELEN_PER_PERSOON = 1;
     private static final int MAX_ARTIKELEN_PER_PERSOON = 4;
 
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie_2");
+    private static EntityManager manager;
 
     /**
      * Constructor
      *
      */
     public KantineSimulatie_2() {
-        kantine = new Kantine();
+        kantine = new Kantine(manager);
         random = new Random();
         int[] hoeveelheden =
                 getRandomArray(AANTAL_ARTIKELEN, MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
@@ -206,20 +208,16 @@ public class KantineSimulatie_2 {
                     break;
             }
         }
-
-
-
-    }
-
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie_2");
-    private EntityManager manager;
-
-    public void runVoorbeeld() {
-        manager=ENTITY_MANAGER_FACTORY.createEntityManager();
-        //transactionsomitted
         manager.close();
         ENTITY_MANAGER_FACTORY.close();
     }
+
+//    public void runVoorbeeld() {
+//        manager.getTransaction().begin();
+//        //transactionsomitted
+//        manager.close();
+//        ENTITY_MANAGER_FACTORY.close();
+//    }
 
     /**
     * Start een simulatie
@@ -233,8 +231,10 @@ public class KantineSimulatie_2 {
             dagen = Integer.parseInt(args[0]);
         }
 
+        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
         KantineSimulatie_2 kantineSimulatie = new KantineSimulatie_2();
-        kantineSimulatie.runVoorbeeld();
+        //kantineSimulatie.runVoorbeeld();
         kantineSimulatie.simuleer(dagen);
+
     }
 }

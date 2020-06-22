@@ -1,13 +1,16 @@
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Iterator;
 
+@Entity
+@Table(name = "factuur")
+
 @Embeddable
 public class Factuur implements Serializable {
 
-    @Column(name = "id")
+    @Id
+    @GeneratedValue
     private Long id;
     @Column(name = "datum")
     private LocalDate datum;

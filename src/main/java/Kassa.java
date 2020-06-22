@@ -1,7 +1,10 @@
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.time.LocalDate;
-import java.util.Iterator;
 
 public class Kassa {
+
+    private EntityManager manager;
     private KassaRij kassaRij;
     private static int totaalAantalArtikelen = 0;
     private static double totaalPrijsKassa = 0;
@@ -10,7 +13,8 @@ public class Kassa {
     /**
      * Constructor
      */
-    public Kassa(KassaRij kassaRij) {
+    public Kassa(KassaRij kassaRij, EntityManager manager) {
+        this.manager = manager;
         this.kassaRij = kassaRij;
     }
 
@@ -32,12 +36,20 @@ public class Kassa {
         // Controleert betaling
         klant.getKlant().setBetaalwijze();
         Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
-
         String klant_naam = klant.getKlant().getVoornaam();
+
+        EntityTransaction transaction = null;
         try {
             betaalwijze.betaal((totaalPrijsArtikelen - totaalKorting));
+            transaction = manager.getTransaction();
+            transaction.begin();
+            manager.persist(factuur);
+            transaction.commit();
             System.out.println(klant_naam + factuur.toString());
         }catch(TeWeinigGeldException message) {
+            if(transaction != null){
+                transaction.rollback();
+            }
             System.out.println(klant_naam + " kan niet €" +(totaalPrijsArtikelen - totaalKorting)+ " betalen. " + klant_naam + message.getMessage());
         }
         totaalPrijsArtikelen = 0;
