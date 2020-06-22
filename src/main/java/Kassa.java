@@ -33,16 +33,15 @@ public class Kassa {
         klant.getKlant().setBetaalwijze();
         Betaalwijze betaalwijze =  klant.getKlant().getBetaalwijze();
 
-
+        String klant_naam = klant.getKlant().getVoornaam();
         try {
-            betaalwijze.betaal(totaalPrijsArtikelen -= totaalKorting);
+            betaalwijze.betaal((totaalPrijsArtikelen - totaalKorting));
+            System.out.println(klant_naam + factuur.toString());
         }catch(TeWeinigGeldException message) {
-            String klant_naam = klant.getKlant().getVoornaam();
-            System.out.println(klant_naam + message.getMessage());
-
+            System.out.println(klant_naam + " kan niet €" +(totaalPrijsArtikelen - totaalKorting)+ " betalen. " + klant_naam + message.getMessage());
         }
-
         totaalPrijsArtikelen = 0;
+        totaalKorting = 0;
     }
 
     /**

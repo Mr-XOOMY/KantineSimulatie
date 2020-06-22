@@ -1,13 +1,21 @@
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Iterator;
 
+@Embeddable
 public class Factuur implements Serializable {
 
+    @Column(name = "id")
     private Long id;
+    @Column(name = "datum")
     private LocalDate datum;
+    @Column(name = "korting")
     private double korting;
+    @Column(name = "totaal")
     private double totaal;
+    @Column(name = "totaalAantalArtikelen")
     private int totaalAantalArtikelen = 0;
 
     public Factuur() {
@@ -72,12 +80,13 @@ public class Factuur implements Serializable {
     public int getTotaalAantalArtikelen(){
         return totaalAantalArtikelen;
     }
+
     /**
      *
      * @return een printpaar bonnetje
      */
+    @Override
     public String toString(){
-        // nog make
-        return "null";
+        return " moet €" + (totaal - korting) + " betalen.";
     }
 }
