@@ -43,24 +43,28 @@ public class Factuur implements Serializable {
     private void verwerkBestelling(Dienblad klant){
         Iterator<Artikel> lijst_artikelen = klant.getArtikel();
         Artikel artikel;
+        double tempKorting = 0;
 
         while(lijst_artikelen.hasNext()) {
             artikel = lijst_artikelen.next();
             totaalAantalArtikelen++;
             if(artikel.getKorting() > 0){
-                korting += artikel.getPrijs() - artikel.getKorting();
+                korting += artikel.getKorting();
+                tempKorting = artikel.getKorting();
             }else{
                 if(klant.getKlant() instanceof KortingskaartHouder){
                     if(((KortingskaartHouder) klant.getKlant()).heeftMaximum()){
                         if(((artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage()) > ((KortingskaartHouder) klant.getKlant()).geefMaximum()) {
-                            korting += (float) (artikel.getPrijs() - ((KortingskaartHouder) klant.getKlant()).geefMaximum());
+                            korting += ((KortingskaartHouder) klant.getKlant()).geefMaximum();
+                            tempKorting = ((KortingskaartHouder) klant.getKlant()).geefMaximum();
                         }
                     }else {
-                        korting += (float) (artikel.getPrijs() - (artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage());
+                        korting += (artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage();
+                        tempKorting = (artikel.getPrijs() / 100) * ((KortingskaartHouder) klant.getKlant()).geefKortingsPercentage();
                     }
                 }
             }
-            totaal += artikel.getPrijs();
+            totaal += artikel.getPrijs() - tempKorting;
         }
     }
 

@@ -2,6 +2,7 @@ import java.util.*;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 
 public class KantineSimulatie_2 {
 
@@ -100,6 +101,21 @@ public class KantineSimulatie_2 {
 
         return artikelen;
     }
+
+    // Query methodes
+
+    /**
+     *
+     * @return Totale omzet en gegeven korting
+     */
+    private String getTotaalOmzetEnKorting(){
+        Query korting = manager.createQuery("SELECT SUM(korting) FROM Factuur");
+        Query totaal = manager.createQuery("SELECT SUM(totaal) FROM Factuur");
+        return "Totaal gegeven korting: " + korting.getSingleResult() + "\nTotale omzet: " + totaal.getSingleResult();
+    }
+
+
+
 
     /**
      * Deze methode simuleert een aantal dagen
@@ -208,16 +224,13 @@ public class KantineSimulatie_2 {
                     break;
             }
         }
+
+        String OmzetenKorting = getTotaalOmzetEnKorting();
+        System.out.println(OmzetenKorting);
+
         manager.close();
         ENTITY_MANAGER_FACTORY.close();
     }
-
-//    public void runVoorbeeld() {
-//        manager.getTransaction().begin();
-//        //transactionsomitted
-//        manager.close();
-//        ENTITY_MANAGER_FACTORY.close();
-//    }
 
     /**
     * Start een simulatie
