@@ -114,7 +114,21 @@ public class KantineSimulatie_2 {
         return "Totaal gegeven korting: " + korting.getSingleResult() + "\nTotale omzet: " + totaal.getSingleResult();
     }
 
+    /**
+     *
+     * @return Gemiddelde omzet en gegeven korting
+     */
+    private String getGemiddeldeOmzetEnKortingPerFactuur(){
+        Query korting = manager.createQuery("SELECT AVG(korting) FROM Factuur");
+        Query totaal = manager.createQuery("SELECT AVG(totaal) FROM Factuur");
+        return "Gemiddeld gegeven korting: " + korting.getSingleResult() + "\nGemiddelde omzet: " + totaal.getSingleResult();
+    }
 
+    private List<Object[]> getTopDrieFacturen(){
+        Query top = manager.createQuery("SELECT id, datum, korting, totaal FROM Factuur ORDER BY totaal DESC");
+        top.setMaxResults(3);
+        return top.getResultList();
+    }
 
 
     /**
@@ -225,8 +239,14 @@ public class KantineSimulatie_2 {
             }
         }
 
-        String OmzetenKorting = getTotaalOmzetEnKorting();
-        System.out.println(OmzetenKorting);
+        String omzetenKorting = getTotaalOmzetEnKorting();
+        System.out.println(omzetenKorting);
+        String gemiddelde = getGemiddeldeOmzetEnKortingPerFactuur();
+        System.out.println(gemiddelde);
+        System.out.println("\nDe de top 3 facturen:\n");
+        for(Object[] factuur : getTopDrieFacturen()){
+            System.out.println(Arrays.toString(factuur));
+        }
 
         manager.close();
         ENTITY_MANAGER_FACTORY.close();
