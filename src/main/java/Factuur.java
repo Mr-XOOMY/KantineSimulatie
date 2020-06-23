@@ -22,7 +22,8 @@ public class Factuur implements Serializable {
     private double totaal;
     @Column(name = "totaalAantalArtikelen")
     private int totaalAantalArtikelen = 0;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(targetEntity = FactuurRegel.class, mappedBy = "factuur", cascade = CascadeType.ALL,
+            orphanRemoval = true)
     @JoinTable(name = "factuur_factuurregel", joinColumns = @JoinColumn(name = "factuur_id"), inverseJoinColumns = @JoinColumn(name = "factuurregel_id"))
     private List<FactuurRegel> regels = new ArrayList<>();
 
