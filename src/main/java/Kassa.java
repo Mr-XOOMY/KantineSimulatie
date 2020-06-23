@@ -40,9 +40,9 @@ public class Kassa {
 
         EntityTransaction transaction = null;
         try {
-            betaalwijze.betaal((totaalPrijsArtikelen - totaalKorting));
             transaction = manager.getTransaction();
             transaction.begin();
+            betaalwijze.betaal((totaalPrijsArtikelen - totaalKorting));
             manager.persist(factuur);
             transaction.commit();
             System.out.println(klant_naam + factuur.toString());
