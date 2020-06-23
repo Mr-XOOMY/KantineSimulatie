@@ -149,4 +149,15 @@ Opgave 2d
 Opgave 3a
 - Bij het aanmaken van de klanten.
 
+#######################################################################################################
+
+Week 6
+
 Opgave 4a
+- Een @ManyToOne relatie omdat er meerdere factuurregels zijn die naar dezelfde factuur verwijzen.
+
+Opgave 5b
+- Een @OneToMany relatie omdat de factuur meerdere factuurregels heeft.
+
+Opgave 5e
+- Anders ontstaat er een onoverzichtelijkheid en dat moet men voorkomen.
